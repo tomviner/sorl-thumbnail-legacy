@@ -98,8 +98,8 @@ def scale_and_crop(im, requested_size, opts):
                 right, bottom = x, y
                 while dx:
                     slice = min(dx, 10)
-                    l_sl = im.crop((0, 0, slice, y))
-                    r_sl = im.crop((x - slice, 0, x, y))
+                    l_sl = im.crop(map(int, (0, 0, slice, y)))
+                    r_sl = im.crop(map(int, (x - slice, 0, x, y)))
                     if utils.image_entropy(l_sl) >= utils.image_entropy(r_sl):
                         right -= slice
                     else:
@@ -107,8 +107,8 @@ def scale_and_crop(im, requested_size, opts):
                     dx -= slice
                 while dy:
                     slice = min(dy, 10)
-                    t_sl = im.crop((0, 0, x, slice))
-                    b_sl = im.crop((0, y - slice, x, y))
+                    t_sl = im.crop(map(int, (0, 0, x, slice)))
+                    b_sl = im.crop(map(int, (0, y - slice, x, y)))
                     if utils.image_entropy(t_sl) >= utils.image_entropy(b_sl):
                         bottom -= slice
                     else:

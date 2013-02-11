@@ -2,3 +2,8 @@ sorl-thumbnail is a simple to use thumbnailing application for Django.
 
 All documentation is in the "docs" directory and online at
 http://thumbnail.sorl.net/docs/
+
+----------------------------------------------------------------------
+
+Including one edit to make sure the scale_and_crop processor uses
+ints for crop dimensions.
